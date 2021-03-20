@@ -2,10 +2,16 @@
 //
 
 #include <iostream>
+#include <iomanip>
+using namespace std;
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	cout << "############# Hash Map #############" << endl;
+	cout << right << setw(11) << "Hash : " << endl;
+	cout << right << setw(11) << "Hash-map : " << endl;
+	cout << "####################################" << endl;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
