@@ -1,23 +1,26 @@
-﻿// HashMap.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// BJ_3053.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
-
 #include <iostream>
-#include<iomanip> 
+#define _USE_MATH_DEFINES
+#include "math.h"
 
 using namespace std;
 
 
+int main(void) {
 
-int main()
-{   
-	cout << "############# Hash Map #############" << endl;
-	cout << right << setw(11) << "Hash : " << endl;
-	cout << right << setw(11) << "Hash-map : " << endl;
-	cout << "####################################" << endl;
+	int r;
+	cin >> r;
+	cout << fixed;
+	cout.precision(6);
+	cout << r*r*M_PI << endl;     // 3.14159
+	cout << pow(r *2,2)/2 << endl;     // 3.14159
+
 
 	return 0;
 }
+
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴

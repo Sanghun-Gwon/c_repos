@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="leet_solution.cpp">
+    <ClCompile Include="DfsAndBfs.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,22 +1,29 @@
-﻿// HashMap.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// PM_Month_Challenge_1.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
-
 #include <iostream>
-#include<iomanip> 
-
+#include <vector>
 using namespace std;
 
+int solution(vector<int> absolutes, vector<bool> signs) {
+    int answer = 0;
 
+    for (int i = 0;i < absolutes.size();i++) {
+        int sign = signs[i] ? 1 : -1;
+        answer += (absolutes[i] * sign);
+    }
+
+    return answer;
+}
 
 int main()
-{   
-	cout << "############# Hash Map #############" << endl;
-	cout << right << setw(11) << "Hash : " << endl;
-	cout << right << setw(11) << "Hash-map : " << endl;
-	cout << "####################################" << endl;
+{
+    vector<int> absolutes = { 4, 7, 12 };
+    vector<bool> signs = { true, false, true };
 
-	return 0;
+    int result = solution(absolutes, signs);
+
+    cout << result;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴

@@ -1,22 +1,31 @@
-﻿// HashMap.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// BJ_2798.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
-
 #include <iostream>
-#include<iomanip> 
-
 using namespace std;
 
-
-
 int main()
-{   
-	cout << "############# Hash Map #############" << endl;
-	cout << right << setw(11) << "Hash : " << endl;
-	cout << right << setw(11) << "Hash-map : " << endl;
-	cout << "####################################" << endl;
+{
+    int n, m;
+    int arr[100];
+    cin >> n >> m;
+    for (int i = 0;i < n;i++) {
+        cin >> arr[i];
+    }
+    int max = 0;
 
-	return 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n && i!=j; j++ ) {
+            for (int k = 0;k < n && i!=k && j!=k; k++) {
+               
+                int sum = arr[i] + arr[j] + arr[k];
+                if (sum <= m && sum > max)
+                    max = sum;
+            }
+        }
+    }
+
+    cout << max << endl;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴

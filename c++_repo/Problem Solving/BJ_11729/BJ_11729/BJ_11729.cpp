@@ -1,22 +1,31 @@
-﻿// HashMap.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
-
+﻿// BJ_11729.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+// 하노이 탑의 이동순서
 
 #include <iostream>
-#include<iomanip> 
-
+#include <cmath>
 using namespace std;
 
+void hanoi(int n, int from, int via, int to) {
+    if (n == 1) {
+        printf("%d %d\n", from, to);
+        return;
+    }
 
+    hanoi(n - 1, from, to, via);
+    printf("%d %d\n", from, to);
+    hanoi(n - 1, via, from, to);
+    return;
+}
 
 int main()
-{   
-	cout << "############# Hash Map #############" << endl;
-	cout << right << setw(11) << "Hash : " << endl;
-	cout << right << setw(11) << "Hash-map : " << endl;
-	cout << "####################################" << endl;
+{
+    int n;
+    cin >> n;
 
-	return 0;
+    printf("%d\n", (int)pow(2, n) - 1);
+
+    hanoi(n, 1, 2, 3);
+    return 0;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴

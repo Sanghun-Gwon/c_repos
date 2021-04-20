@@ -1,23 +1,43 @@
-﻿// HashMap.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// BJ_1002.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
-
-
 #include <iostream>
-#include<iomanip> 
-
 using namespace std;
 
-
-
 int main()
-{   
-	cout << "############# Hash Map #############" << endl;
-	cout << right << setw(11) << "Hash : " << endl;
-	cout << right << setw(11) << "Hash-map : " << endl;
-	cout << "####################################" << endl;
+{
+	int t;					//test case
+	long long x1, y1, x2, y2, r1, r2;
+	long long d;
+	cin >> t;
+	while (t--) {
+		cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
 
+		d = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
+
+		if (d == 0) {
+			if (r1 == r2) {
+				cout << -1 << endl;									//동심원
+			}
+			else {
+				cout << 0 << endl;
+			}
+		}
+		else {
+			if ((r1 - r2)* (r1 - r2) < d && (r1 + r2)* (r1 + r2) > d) {
+				//두점에서 만남
+				cout << 2 << endl;
+			}
+			else if ((r1 + r2) * (r1 + r2) == d || (r1 - r2) * (r1 - r2) == d) {
+				cout << 1 << endl;
+			}
+			else {
+				cout << 0 << endl;
+			}
+		}
+	}
 	return 0;
 }
+
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴

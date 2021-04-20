@@ -1,22 +1,55 @@
-﻿// HashMap.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+﻿// BJ_9020.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
+/*
+골드바흐의 추측을 응용한 문제
 
+*/
 #include <iostream>
-#include<iomanip> 
+#include <cmath>
 
 using namespace std;
 
+int p_arr[10001] = { 0, };			//prime arr
 
+void soe() {				//에라토스테네스 소수판별
+	p_arr[0] = p_arr[1] = 1;
+	
+	for (int i = 2; i < sqrt(10001);i++) {
+		if (p_arr[i] == 0) {
+			for (int j = i * 2; j < 10001; j += i) {
+				p_arr[j] = 1;
+			}
+		}
+	}
+}
 
 int main()
-{   
-	cout << "############# Hash Map #############" << endl;
-	cout << right << setw(11) << "Hash : " << endl;
-	cout << right << setw(11) << "Hash-map : " << endl;
-	cout << "####################################" << endl;
+{
+	int t;				//test case
+	int n;
 
-	return 0;
+	cin >> t;
+	soe();
+
+	while (t--) {
+		cin >> n;
+		int num1 = -1, num2 = -1;
+		int min = n;
+
+		for (int i = 2; i <= (n+1)/2;i++) {
+			if (p_arr[i] == 0 && p_arr[n-i] ==0) {
+				if (min > n - (2*i)) {
+					min = n - (2 * i);
+					num1 = i;
+					num2 = n-i;
+				}
+				
+			}
+		}
+		cout << num1 << " " << num2 << endl;
+
+	}
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
